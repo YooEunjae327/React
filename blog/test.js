@@ -1,3 +1,3 @@
-let [a, b] = 'asd'
+let a = [2, 4, 10, 5]
 
-console.log(a, b)
+console.log(a.sort())
