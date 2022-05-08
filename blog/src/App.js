@@ -8,6 +8,7 @@ function App() {
     '파이썬 독학',
   ])
   let [good, goodup] = useState(0)
+  let [modal, setModal] = useState(false)
 
   return (
     <div className="App">
@@ -55,7 +56,15 @@ function App() {
       >
         글 정렬
       </button>
-      <Modal></Modal>
+      <button
+        onClick={() => {
+          // modal === true ? setModal(false) : setModal(true)
+          setModal(!modal)
+        }}
+      >
+        {title[0]}
+      </button>
+      {modal === true ? <Modal></Modal> : null}
     </div>
   )
 }
