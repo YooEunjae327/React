@@ -5,6 +5,8 @@ import Ex01 from './components/Ex01';
 import Ex02 from './components/Ex02'
 import Ex03 from './components/Ex03'
 import Ex04 from './components/Ex04'
+import Ex05 from './components/Ex05';
+import Ex06 from './components/Ex06';
 
 function App() {
   var a = '10'
@@ -13,13 +15,10 @@ function App() {
 
   return (
     <div className="App">
-      {/* <h1>{a}</h1>
-      <h1>{b}</h1>
-      <Test />
-      <Ex01 />
-      <Ex02 name="누시다" age = {20}/> */
-      // <Ex03/> 
-      <Ex04/> }
+      <Ex03/>  
+      <Ex04/> 
+      <Ex05/>
+      <Ex06/>
     </div>
   )
 } 
