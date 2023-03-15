@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import './NumberSorter.css'
 
-function NumberSorter() {
+function P6() {
   const [numbers, setNumbers] = useState(Array(10).fill(0))
   const [sortedNumbers, setSortedNumbers] = useState([])
   const [isAscending, setIsAscending] = useState(true)
@@ -66,4 +66,4 @@ function NumberSorter() {
   )
 }
 
-export default NumberSorter
+export default P6

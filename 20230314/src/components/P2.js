@@ -50,7 +50,8 @@ const P2 = () => {
 
     return (
       <div>
-        <h1>가위 바위 보중에 하나를 입력하세요</h1>
+        <h1>가위 바위 보중에 하나를 입력하세요.</h1>
+        <h2>입력하고 엔터를 눌러 주세요.</h2>
             <form onSubmit={(e) => {e.preventDefault(); chkValue(e)}}>
                 <input name="value"></input>
             </form>

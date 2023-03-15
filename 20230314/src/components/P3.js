@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function P3() {
+const P3 =() => {
   const [totalSeconds, setTotalSeconds] = useState(0)
 
   const handleTimeSubmit = (event) => {
@@ -25,8 +25,8 @@ function P3() {
   return (
     <div>
       <form onSubmit={handleTimeSubmit}>
+        <h1>시간을 입력하세요.</h1>
         <label>
-          시간 입력
           <input type="number" name="seconds" min="0" defaultValue="0" />
         </label>
         <button type="submit">Start</button>

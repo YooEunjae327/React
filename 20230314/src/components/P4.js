@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import "../css/P4.css"
 
 function P4() {
   const [start, setStart] = useState(0)
@@ -37,25 +38,19 @@ function P4() {
   return (
     <div>
       <form onSubmit={handleRangeSubmit}>
+        <h1>구구단 입력기</h1>
         <label>
-          Start:
+          시작:
           <input type="number" name="start" defaultValue="0" />
         </label>
         <label>
-          End:
+          끝:
           <input type="number" name="end" defaultValue="0" />
         </label>
         <button type="submit">Show Table</button>
       </form>
       <table>
-        <thead>
-          <tr>
-            <th>&nbsp;</th>
-            {table.map((row, index) => (
-              <th key={index}>{start + index}단</th>
-            ))}
-          </tr>
-        </thead>
+
         <tbody>
           {[...Array(9)].map((_, rowIndex) => (
             <tr key={rowIndex}>
