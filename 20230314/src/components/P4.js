@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import "../css/P4.css"
 
-function P4() {
+const P4 = () => {
   const [start, setStart] = useState(0)
   const [end, setEnd] = useState(0)
   const [table, setTable] = useState([])
 
-  function handleRangeSubmit(event) {
+  const handleRangeSubmit = (event) => {
     event.preventDefault()
     const startNumber = parseInt(event.target.start.value)
     const endNumber = parseInt(event.target.end.value)

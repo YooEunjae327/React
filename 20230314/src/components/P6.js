@@ -1,66 +1,50 @@
 import React, { useState } from 'react'
-import './NumberSorter.css'
+import '../css/P6.css'
 
-function P6() {
-  const [numbers, setNumbers] = useState(Array(10).fill(0))
-  const [sortedNumbers, setSortedNumbers] = useState([])
-  const [isAscending, setIsAscending] = useState(true)
+const P6 = () => {
+  const [as, setAs] = useState([])
+  const [de, setDe] = useState([])
+  const [value, setValue] = useState(10)
 
-  const handleNumberSubmit = (event) => {
-    event.preventDefault()
-    const newNumbers = Array(10)
-      .fill(0)
-      .map((_, index) => parseInt(event.target[`number${index}`].value))
-    const sorted = isAscending
-      ? newNumbers.sort((a, b) => a - b)
-      : newNumbers.sort((a, b) => b - a)
-    setNumbers(newNumbers)
-    setSortedNumbers(sorted)
-  }
+  const evenOddChk = (e) => {
+    value === 0 ? window.location.reload() : setValue(value - 1)
 
-  const handleSortOrderChange = () => {
-    setIsAscending(!isAscending)
-    const sorted = isAscending
-      ? numbers.sort((a, b) => b - a)
-      : numbers.sort((a, b) => a - b)
-    setSortedNumbers(sorted)
-  }
+
+      setAs([...as, e.target.value.value].sort((a,b) => a - b))
+      setDe([...de, e.target.value.value].sort((a, b) => b - a))
+  } 
+
 
   return (
-    <div className="number-sorter">
-      <form className="number-form" onSubmit={handleNumberSubmit}>
-        {numbers.map((number, index) => (
-          <label className="number-label" key={index}>
-            Number {index + 1}:
-            <input
-              className="number-input"
-              type="number"
-              name={`number${index}`}
-              defaultValue={number}
-            />
-          </label>
-        ))}
-        <button className="sort-button" type="submit">
-          Sort Numbers
-        </button>
+    <div>
+      <h1>값을 {value}개 입력하세요</h1>
+      <h3>입력한후에 엔터 누르면됩니다.</h3>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault()
+          evenOddChk(e)
+        }}
+      >
+        <input name="value"></input>
       </form>
-      <div className="sort-controls">
-        <button className="sort-order-button" onClick={handleSortOrderChange}>
-          {isAscending ? 'Sort Descending' : 'Sort Ascending'}
-        </button>
-      </div>
-      <div className="number-list">
-        {sortedNumbers.length > 0 ? (
-          <ul className="sorted-list">
-            {sortedNumbers.map((number, index) => (
-              <li className="sorted-item" key={index}>
-                {number}
-              </li>
+
+      <div className="eo">
+        <div>
+          <h2>오름차순입니다.</h2>
+          <div id='sideContainer'>
+            {as.map((item, index) => (
+              <p key={index}>{item}</p>
             ))}
-          </ul>
-        ) : (
-          <p className="no-numbers">No numbers to display.</p>
-        )}
+          </div>
+        </div>
+        <div>
+          <h2>내림차순입니다.</h2>
+          <div id='sideContainer'>
+            {de.map((item, index) => (
+              <p key={index}>{item}</p>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   )

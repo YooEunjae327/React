@@ -31,8 +31,6 @@ const P2 = () => {
       const random = rand()
       setRandom(random)
 
-      console.log(random)
-      console.log(val)
 
 
 
@@ -45,7 +43,6 @@ const P2 = () => {
       }
      
     }
-
 
 
     return (
@@ -61,12 +58,5 @@ const P2 = () => {
       </div>
     )
 }
-
-
-
-
-
-
-
 
 export default P2

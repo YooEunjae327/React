@@ -1,62 +1,56 @@
 import React, { useState } from 'react'
+import "../css/P5.css"
 
-function P5() {
-  const [numbers, setNumbers] = useState(Array(10).fill(0))
-  const [oddNumbers, setOddNumbers] = useState([])
-  const [evenNumbers, setEvenNumbers] = useState([])
 
-  function handleNumberSubmit(event) {
-    event.preventDefault()
-    const newNumbers = []
-    for (let i = 0; i < 10; i++) {
-      const number = parseInt(event.target[`number${i}`].value)
-      newNumbers.push(number)
-    }
-    const newOddNumbers = newNumbers.filter((number) => number % 2 !== 0)
-    const newEvenNumbers = newNumbers.filter((number) => number % 2 === 0)
-    setNumbers(newNumbers)
-    setOddNumbers(newOddNumbers)
-    setEvenNumbers(newEvenNumbers)
+
+const P5 = () => {
+
+  let [even, setEven] = useState([])
+  let [odd, setOdd] = useState([])  
+  const [value, setValue] = useState(10)
+
+  const evenOddChk = (e) => {
+      value === 0 ? window.location.reload() : setValue(value - 1)
+      
+      if(e.target.value.value % 2 == 0) {
+        setEven([...even, e.target.value.value])
+      } else {
+        setOdd([...odd, e.target.value.value])
+      }
+      
   }
+
 
   return (
     <div>
-      <form onSubmit={handleNumberSubmit}>
-        {numbers.map((number, index) => (
-          <label key={index}>
-            Number {index + 1}:
-            <input
-              type="number"
-              name={`number${index}`}
-              defaultValue={number}
-            />
-          </label>
-        ))}
-        <button type="submit">Sort Numbers</button>
+      <h1>값을 {value}개 입력하세요</h1>
+      <h3>입력한후에 엔터 누르면됩니다.</h3>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault()
+          evenOddChk(e)
+        }}
+      >
+        <input name="value"></input>
       </form>
-      <div>
-        <h2>Odd Numbers</h2>
-        {oddNumbers.length > 0 ? (
-          <ul>
-            {oddNumbers.map((number, index) => (
-              <li key={index}>{number}</li>
+
+      <div className="eo">
+        <div>
+          <h2>짝수입니다.</h2>
+          <div>
+            {even.map((item, index) => (
+              <p key={index}>{item}</p>
             ))}
-          </ul>
-        ) : (
-          <p>No odd numbers found.</p>
-        )}
-      </div>
-      <div>
-        <h2>Even Numbers</h2>
-        {evenNumbers.length > 0 ? (
-          <ul>
-            {evenNumbers.map((number, index) => (
-              <li key={index}>{number}</li>
+          </div>
+        </div>
+        <div>
+          <h2>홀수입니다.</h2>
+          <div>
+            {odd.map((item, index) => (
+              <p key={index}>{item}</p>
             ))}
-          </ul>
-        ) : (
-          <p>No even numbers found.</p>
-        )}
+          </div>
+        </div>
       </div>
     </div>
   )
