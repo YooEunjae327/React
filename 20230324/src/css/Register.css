@@ -1,0 +1,70 @@
+.main {
+    font-size: px;
+}
+
+.hid {
+    display: flex;
+    justify-content: left;
+    width: 350px;
+    font-size: 13.5px;
+    color: red;
+    margin-left: 80px;
+}
+
+.in {
+    margin-top: 10px;
+    position: absolute;
+    left: 39.6%;
+    
+}
+
+.in div {
+    width: 340px;
+    height:32px;
+    line-height: 32px;
+    margin-bottom: 80px;
+    margin-top: 60px;
+}
+
+.fo {
+    display: flex;
+    justify-content: center;
+    margin-top: 500px;
+}
+
+.fon {
+    display: flex;
+    justify-content: center;
+    margin-left: 3.5px;
+}
+
+.foin {
+    width: 50px;
+}
+
+input {
+  float: right;
+  width: 250px;
+  height: 32px;
+  font-size: 15px;
+  border: 0;
+  border-radius: 5px;
+  outline: none;
+  padding-left: 10px;
+  background-color: rgb(233, 233, 233);
+
+}
+
+button {
+    margin-left: 100px;
+    align-items: center;
+
+    border: 0px;
+    border-radius: 5px;
+    height: 40px;
+    background-color: black;
+    color: white;
+    display: flex;   
+    justify-content: center;
+    width: 150px;
+}
